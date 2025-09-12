@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchTopRatedMovies();
     fetchMoviesByCategory('Action', 'action');
     fetchMoviesByCategory('Comedy', 'comedie');
-    fetchMoviesByCategory('Drama', 'Drame'); // Removed extra comma
+    fetchMoviesByCategory('Drama', 'Drame');
 
     // For the dropdown in "Autre catégories"
     const select = document.getElementById('choix-categorie');
@@ -39,8 +39,7 @@ function fetchTopRatedMovies() {
     fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score')
         .then(response => response.json())
         .then(data => {
-            // Remove the best movie (first one)
-            const movies = data.results.slice(1, 7); // Next 6 top-rated movies
+            const movies = data.results.slice(1, 7);
             displayMovies(movies, 'films-mieux-notes');
         })
         .catch(error => console.error('Erreur lors du chargement des films les mieux notés:', error));
@@ -51,17 +50,25 @@ function fetchMoviesByCategory(category, sectionID) {
     fetch(`http://localhost:8000/api/v1/titles/?genre=${category}&sort_by=-imdb_score`)
         .then(response => response.json())
         .then(data => {
-            const movies = data.results.slice(0, 6); // Show top 6
+            const movies = data.results.slice(0, 6);
             displayMovies(movies, sectionID);
         })
         .catch(error => console.error(`Erreur lors du chargement des films de la catégorie ${category}:`, error));
 }
 
-// Display movies in a section
+// Display movies in a section (with defensive checks)
 function displayMovies(movies, sectionID) {
     const section = document.getElementById(sectionID);
-    const list = section.querySelector('.liste-films'); // Fixed class name
-    list.innerHTML = ''; // Clear previous content
+    if (!section) {
+        console.error(`Section with ID "${sectionID}" not found in HTML.`);
+        return;
+    }
+    const list = section.querySelector('.liste-films');
+    if (!list) {
+        console.error(`No .liste-films div found in section "${sectionID}".`);
+        return;
+    }
+    list.innerHTML = '';
     movies.forEach(movie => {
         const article = document.createElement('article');
         article.innerHTML = `
