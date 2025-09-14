@@ -4,7 +4,7 @@
        <meta charset="utf-8">
        <title>OC-Movies </title> 
        <link rel="stylesheet" href="style.css">
-       <script src="main.js"></script>
+      
       </head>
     <body>
       <header>
@@ -33,23 +33,26 @@
          <!--Section Catégorie 1-->
          <section id="action">
              <h2>Action</h2>
-             <div class="liste-films">
+             <div class="liste-films">   </div>
+             <button class="voir-plus"> Voir plus</button>
                <!--carte de films ici-->
-             </div>
+          
          </section>
          <!--Section Catégoire 2-->
          <section id="comedie">
             <h2>Comédie</h2>
-            <div class="liste-films">
+            <div class="liste-films">   </div>
+            <button class="voir-plus"> Voir plus</button>
                <!--cartes de films ici-->
-               </div>
+              
          </section>
          <!--Section Catégorie 3-->
          <section id="Drame">
             <h2>Drame</h2>
-            <div class="liste-films">
+            <div class="liste-films"> </div>
+               <button class="voir-plus"> Voir plus</button>
                <!--carte de films ici-->
-            </div>
+           
          </section>
          <!--Section Autre Catégories-->
          <section id="Autre-categories">
@@ -63,11 +66,17 @@
             <div class="liste-films">
                <!--carte de films ici-->
             </div>
-            <button>voir plus</button>
+            <button class="voir-plus">voir plus</button>
          </section>
       </main>
       <footer>
          <p>&copy; 2025 OCMovies</p>
       </footer>
+      <div id="modal" class="modal" style="display: none;">
+         <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+      </div>
+       <script src="main.js"></script>
     </body>
 </html>

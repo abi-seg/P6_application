@@ -7,9 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // For the dropdown in "Autre catégories"
     const select = document.getElementById('choix-categorie');
-    select.addEventListener('change', (event) => {
+    if (select) {
+        select.addEventListener('change', (event) => {
         fetchMoviesByCategory(event.target.value, 'Autre-categories');
     });
+}
 });
 
 // Fetch and display the best movie
@@ -79,3 +81,52 @@ function displayMovies(movies, sectionID) {
         list.appendChild(article);
     });
 }
+function getVisibleCount() {
+    const width = window.innerWidth;
+    if (width < 600) return 2; //Mobile
+    if (width < 900) return 4; //Tabelette
+    return 6;
+
+}
+function updateVisibleMovies(list, showAll=false){
+    const articles = list.querySelectorAll('article');
+    const visibleCount = showAll ? articles.length : getVisibleCount();
+    articles.forEach((article, i) => {
+        if(i<visibleCount){
+            article.classList.remove('film-cache');
+            } else {
+                article.classList.add('film-cache');
+            }
+    });
+}
+document.querySelectorAll('.liste-films').forEach(list => {
+    updateVisibleMovies(list, false); //Affichage par défaut
+    const voirPlusBtn = list.parentElement.querySelector('.voir-plus');
+    if (voirPlusBtn) {
+        voirPlusBtn.onclick = function() {
+            const isShowingAll = voirPlusBtn.textContent === "Voir moins";
+            updateVisibleMovies(list, !isShowingAll);
+            voirPlusBtn.textContent = isShowingAll ? "Voir plus" : "Voir moins"
+
+        };
+    }
+});
+//Adapter l'affichage lors du redimensionnement de la fenetre
+window.addEventListener('resize',() => {
+    document.querySelectorAll('.liste-films').forEach(list => {
+        const voirPlusBtn = list.parentElement.querySelector('.Voir-plus');
+        if (voirPlusBtn && voirPlusBtn.textContent === "Voir plus") {
+            updateVisibleMovies(list, false);
+        }
+    });
+});
+document.body.addEventListener('click', function(e){
+    if(e.target.closest('.liste-films article')){
+        document.getElementById('modal').style.display ='flex';
+        document.getElementById('modal-body').innerHTML = "<b> Infos du film ici </b>";
+
+    }
+    if (e.target.matches('.close, .modal')) {
+        document.getElementById('modal').style.display = 'none';
+    }
+});
