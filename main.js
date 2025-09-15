@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchMoviesByCategory('Action', 'action');
     fetchMoviesByCategory('Comedy', 'comedie');
     fetchMoviesByCategory('Drama', 'Drame');
+    fetchAndFillCategories();
 
     // For the dropdown in "Autre catégories"
     const select = document.getElementById('choix-categorie');
@@ -13,7 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }
 });
-
+function fetchAndFillCategories() {
+   fetch('http://localhost:8000/api/v1/genres/')
+   .then(response=>response.json())
+   .then(data => {
+    const select = document.getElementById('choix-categorie');
+    select.innerHTML = ''; //clear old options
+    data.results.forEach(genre => {
+        const option = document.createElement('option');
+        option.value = genre.name;
+        option.textContent = genre.name;
+        select.appendChild(option);
+    });
+   });
+}
 // Fetch and display the best movie
 function fetchBestMovie() {
     fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score')
