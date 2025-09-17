@@ -52,7 +52,7 @@ function displayBestMovie(movie) {
 
 // Fetch and display top-rated movies (excluding the best movie)
 function fetchTopRatedMovies() {
-    fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score')
+    fetch('http://localhost:8000/api/v1/titles/?sort_by=-imdb_score&page_size=7')
         .then(response => response.json())
         .then(data => {
             const movies = data.results.slice(1, 7);
@@ -63,11 +63,11 @@ function fetchTopRatedMovies() {
 
 // Fetch and display movies by category
 function fetchMoviesByCategory(category, sectionID) {
-    fetch(`http://localhost:8000/api/v1/titles/?genre=${category}&sort_by=-imdb_score`)
+    fetch(`http://localhost:8000/api/v1/titles/?genre=${category}&sort_by=-imdb_score&page_size=6`)
         .then(response => response.json())
         .then(data => {
-            const movies = data.results.slice(0, 6);
-            displayMovies(movies, sectionID);
+            
+            displayMovies(data.results, sectionID);
         })
         .catch(error => console.error(`Erreur lors du chargement des films de la catégorie ${category}:`, error));
 }

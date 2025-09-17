@@ -25,7 +25,7 @@ section {
     background: #f5f6fa;
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    padding: 2em 1.5em;
+    padding: 1em 0.5em;
     transition: box-shadow 0.3s;
 }
 section:hover{
@@ -44,29 +44,31 @@ h2 {
     justify-items: center;
     margin-top: 1em;
 }
-@media (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 1199px) {
     .liste-films {
         grid-template-columns: 1fr 1fr ; /* 2 colonnes sur tablette */
     }
 }
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
     .liste-films {
         grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes sur ordinateur*/
     }
 }
 .liste-films article {
+    width:100%;
+    max-width: 220px;
     background: #232526;
     color: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12);
     padding: 1em;
-    width: 200px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .liste-films article:hover {
-    transform: translateY(-8px) scale(1.03);
     box-shadow: 0 8px 24px rgba(245,197,24,0.15);
+    transform: translateY(-5px) scale(1.03);
+    cursor: pointer;
 }
 
 .liste-films img {
