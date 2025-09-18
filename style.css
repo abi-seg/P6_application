@@ -1,3 +1,4 @@
+/* ====== Global Styles ====== */
 body {
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg, #232526 0%, #414345 100%);
@@ -5,7 +6,8 @@ body {
     padding: 0;
     color: #222;
 }
-header,footer{
+
+header, footer {
     background: #1a1a2e;
     color: #f5c518;
     text-align: center;
@@ -13,49 +15,60 @@ header,footer{
     letter-spacing: 2px;
     font-size: 1.5em;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    
 }
+
 main {
     max-width: 1200px;
     margin: 2em auto;
     padding: 0 1em;
 }
+
 section {
-     margin-bottom: 2em;
+    margin-bottom: 2em;
     background: #f5f6fa;
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     padding: 1em 0.5em;
     transition: box-shadow 0.3s;
 }
-section:hover{
+
+section:hover {
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
+
 h2 {
     color: #f5c518;
     margin-top: 0;
     font-size: 2em;
     letter-spacing: 1px;
 }
+
+/* ====== Movies Grid ====== */
 .liste-films {
     display: grid;
-    grid-template-columns: 1fr; /* 1 colone par défaut (mobile) */
+    grid-template-columns: 1fr; /* Mobile: 1 column */
     gap: 1.5em;
     justify-items: center;
     margin-top: 1em;
 }
+
+/* Tablet: 2 columns */
 @media (min-width: 600px) and (max-width: 1199px) {
     .liste-films {
-        grid-template-columns: 1fr 1fr ; /* 2 colonnes sur tablette */
+        grid-template-columns: 1fr 1fr;
     }
 }
+
+/* Desktop: 3 columns */
 @media (min-width: 1200px) {
     .liste-films {
-        grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes sur ordinateur*/
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+/* ====== Movie Card ====== */
 .liste-films article {
-    width:100%;
+    width: 100%;
     max-width: 220px;
     background: #232526;
     color: #fff;
@@ -65,6 +78,7 @@ h2 {
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .liste-films article:hover {
     box-shadow: 0 8px 24px rgba(245,197,24,0.15);
     transform: translateY(-5px) scale(1.03);
@@ -86,8 +100,10 @@ h2 {
     color: #f5c518;
     font-weight: 600;
 }
+
+/* ====== Buttons ====== */
 button {
-     background: linear-gradient(90deg, #f5c518 0%, #ffb347 100%);
+    background: linear-gradient(90deg, #f5c518 0%, #ffb347 100%);
     color: #232526;
     border: none;
     border-radius: 6px;
@@ -99,11 +115,14 @@ button {
     box-shadow: 0 2px 8px rgba(245,197,24,0.10);
     transition: background 0.2s, color 0.2s;
 }
+
 button:hover {
-   background: #232526;
+    background: #232526;
     color: #f5c518;
     border: 1px solid #f5c518;
 }
+
+/* ====== Select ====== */
 select {
     background: #fffbe7;
     color: #232526;
@@ -111,10 +130,10 @@ select {
     border-radius: 6px;
     padding: 0.4em 1em;
     font-size: 1em;
-    margin-bottom: 1em;
-    margin-top: 0.5em;
+    margin: 0.5em 0 1em 0;
 }
 
+/* ====== Footer ====== */
 footer {
     font-size: 1em;
     padding: 1em 0;
@@ -123,22 +142,40 @@ footer {
     background: #1a1a2e;
     color: #f5c518;
 }
-/* Hide elements with this class*/
-.film-cache {
-    display: none !important
-}
-/* Modal styles */
-.modal {
-    position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;
-    background: rgba(0,0,0,0.07); display: flex; align-items: center;justify-content: center;
-z-index: 1000;
-}
-.modal-content {
-    background: #fff; border-radius: 10px; padding: 2em; max-width: 500px; width: 90vw; max-height: 90vh;
-overflow-y: auto;
-position: relative;
 
+/* ====== Hide elements (for "Voir moins") ====== */
+.film-cache {
+    display: none !important;
 }
-.close{
-    position: absolute; top: 10px; right: 20px; font-size: 2em; cursor: pointer; color: #333;
+
+/* ====== Modal ====== */
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2em;
+    max-width: 500px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
 }

@@ -1,82 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-       <meta charset="utf-8">
-       <title>OC-Movies </title> 
-       <link rel="stylesheet" href="style.css">
-      
-      </head>
-    <body>
-      <header>
-       <h1> OC-Movies </h1>
-       </header>
-       <main>
-         <!--Section Meilleur Film-->
-         <section id ="meilleur-film">
-            <h2>Meilleur Film</h2>
-            <img src="https://picsum.photos/300/400" alt ="Affiche du meilleur film">
-            <h3> Titre du film</h3>
-            <button> Détails</button>
-            <p> Résumé du film...</p>
-         </section>
-         <!--Section Films les mieux notés-->
-         <section id="films-mieux-notes">
-            <h2> Films les mieux notés</h2>
-            <div class="liste-films">
-               <article>
-                  <img src="https://picsum.photos/200/300" alt="Affiche du film">
-                  <h4> Titre du film</h4>
-                  <button>Détails</button>
-               </article>
-            </div>
-         </section>
-         <!--Section Catégorie 1-->
-         <section id="action">
-             <h2>Action</h2>
-             <div class="liste-films">   </div>
-             <button class="voir-plus"> Voir plus</button>
-               <!--carte de films ici-->
-          
-         </section>
-         <!--Section Catégoire 2-->
-         <section id="comedie">
-            <h2>Comédie</h2>
-            <div class="liste-films">   </div>
-            <button class="voir-plus"> Voir plus</button>
-               <!--cartes de films ici-->
-              
-         </section>
-         <!--Section Catégorie 3-->
-         <section id="Drame">
-            <h2>Drame</h2>
-            <div class="liste-films"> </div>
-               <button class="voir-plus"> Voir plus</button>
-               <!--carte de films ici-->
-           
-         </section>
-         <!--Section Autre Catégories-->
-         <section id="Autre-categories">
-            <h2>Autre catégories</h2>
-            <select id="choix-categorie">
-               <option value="science-fiction">science-fiction</option>
-               <option value="romance">Romance</option>
-               <!--Ajoutez d'autres catégories si besoin-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OC-Movies</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1>OC-Movies</h1>
+    </header>
 
-            </select>
-            <div class="liste-films">
-               <!--carte de films ici-->
-            </div>
-            <button class="voir-plus">voir plus</button>
-         </section>
-      </main>
-      <footer>
-         <p>&copy; 2025 OCMovies</p>
-      </footer>
-      <div id="modal" class="modal" style="display: none;">
-         <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="modal-body"></div>
-      </div>
-       <script src="main.js"></script>
-    </body>
+    <main>
+      <!-- Section Meilleur Film -->
+      <section id="meilleur-film">
+        <h2>Meilleur Film</h2>
+        <img src="https://picsum.photos/300/400?1" alt="Affiche du meilleur film">
+        <h3>Titre du film</h3>
+        <button>Détails</button>
+        <p>Résumé du film...</p>
+      </section>
+
+      <!-- Section Films les mieux notés -->
+      <section id="films-mieux-notes">
+        <h2>Films les mieux notés</h2>
+        <div class="liste-films">
+          <article><img src="https://picsum.photos/200/300?2" alt=""><h4>Film 1</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?3" alt=""><h4>Film 2</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?4" alt=""><h4>Film 3</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?5" alt=""><h4>Film 4</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?6" alt=""><h4>Film 5</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?7" alt=""><h4>Film 6</h4><button>Détails</button></article>
+        </div>
+      </section>
+
+      <!-- Section Action -->
+      <section id="action">
+        <h2>Action</h2>
+        <div class="liste-films">
+          <article><img src="https://picsum.photos/200/300?8" alt=""><h4>Action 1</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?9" alt=""><h4>Action 2</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?10" alt=""><h4>Action 3</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?11" alt=""><h4>Action 4</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?12" alt=""><h4>Action 5</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?13" alt=""><h4>Action 6</h4><button>Détails</button></article>
+        </div>
+        <button class="voir-plus">Voir plus</button>
+      </section>
+
+      <!-- Section Comédie -->
+      <section id="comedie">
+        <h2>Comédie</h2>
+        <div class="liste-films">
+          <article><img src="https://picsum.photos/200/300?14" alt=""><h4>Comédie 1</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?15" alt=""><h4>Comédie 2</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?16" alt=""><h4>Comédie 3</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?17" alt=""><h4>Comédie 4</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?18" alt=""><h4>Comédie 5</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?19" alt=""><h4>Comédie 6</h4><button>Détails</button></article>
+        </div>
+        <button class="voir-plus">Voir plus</button>
+      </section>
+
+      <!-- Section Drame -->
+      <section id="drame">
+        <h2>Drame</h2>
+        <div class="liste-films">
+          <article><img src="https://picsum.photos/200/300?20" alt=""><h4>Drame 1</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?21" alt=""><h4>Drame 2</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?22" alt=""><h4>Drame 3</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?23" alt=""><h4>Drame 4</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?24" alt=""><h4>Drame 5</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?25" alt=""><h4>Drame 6</h4><button>Détails</button></article>
+        </div>
+        <button class="voir-plus">Voir plus</button>
+      </section>
+
+      <!-- Section Autres Catégories -->
+      <section id="autres-categories">
+        <h2>Autres catégories</h2>
+        <select id="choix-categorie">
+          <option value="science-fiction">Science-fiction</option>
+          <option value="romance">Romance</option>
+        </select>
+        <div class="liste-films">
+          <article><img src="https://picsum.photos/200/300?26" alt=""><h4>Autre 1</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?27" alt=""><h4>Autre 2</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?28" alt=""><h4>Autre 3</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?29" alt=""><h4>Autre 4</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?30" alt=""><h4>Autre 5</h4><button>Détails</button></article>
+          <article><img src="https://picsum.photos/200/300?31" alt=""><h4>Autre 6</h4><button>Détails</button></article>
+        </div>
+        <button class="voir-plus">Voir plus</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 OCMovies</p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
 </html>

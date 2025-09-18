@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchTopRatedMovies();
     fetchMoviesByCategory('Action', 'action');
     fetchMoviesByCategory('Comedy', 'comedie');
-    fetchMoviesByCategory('Drama', 'Drame');
+    fetchMoviesByCategory('Drama', 'drame');
     fetchAndFillCategories();
 
     // For the dropdown in "Autre catégories"
     const select = document.getElementById('choix-categorie');
     if (select) {
         select.addEventListener('change', (event) => {
-        fetchMoviesByCategory(event.target.value, 'Autre-categories');
+        fetchMoviesByCategory(event.target.value, 'autres-categories');
     });
 }
 });
@@ -95,24 +95,12 @@ function displayMovies(movies, sectionID) {
         list.appendChild(article);
     });
 }
-function getVisibleCount() {
-    const width = window.innerWidth;
-    if (width < 600) return 2; //Mobile
-    if (width < 900) return 4; //Tabelette
-    return 6;
-
-}
-function updateVisibleMovies(list, showAll=false){
+function updateVisibleMovies(list, showAll = true) {
     const articles = list.querySelectorAll('article');
-    const visibleCount = showAll ? articles.length : getVisibleCount();
-    articles.forEach((article, i) => {
-        if(i<visibleCount){
-            article.classList.remove('film-cache');
-            } else {
-                article.classList.add('film-cache');
-            }
-    });
+    articles.forEach(article => article.classList.remove('film-cache'));
 }
+
+
 document.querySelectorAll('.liste-films').forEach(list => {
     updateVisibleMovies(list, false); //Affichage par défaut
     const voirPlusBtn = list.parentElement.querySelector('.voir-plus');
